@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+button {
+  border: 0;
+  outline: none !important;
+  background-color: #ffffff;
+  align-items: center;
+  cursor: pointer;
+}

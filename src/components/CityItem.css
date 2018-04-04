@@ -1,0 +1,9 @@
+.city-item {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.city-item__remove-button {
+  color: red;
+}
