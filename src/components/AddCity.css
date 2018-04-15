@@ -1,0 +1,7 @@
+.add-city {
+  padding: 10px;
+  border-top: 1px solid white;
+  justify-content: space-between;
+  flex-direction: row;
+  display: flex;
+}

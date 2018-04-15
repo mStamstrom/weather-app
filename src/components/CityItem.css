@@ -2,6 +2,8 @@
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+  border-bottom: 1px solid white;
+  padding: 10px;
 }
 
 .city-item__remove-button {

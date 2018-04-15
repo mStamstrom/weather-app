@@ -7,22 +7,8 @@ import AddCity from './components/AddCity';
 class App extends Component {
   constructor(props) {
     super(props);
-    const mockData = [
-      {
-        name: 'uppsala',
-        weather: 0,
-      },
-      {
-        name: 'test',
-        weather: 0,
-      },
-      {
-        name: 'test 2',
-        weather: 0,
-      },
-    ];
     this.state = {
-      cities: mockData,
+      cities: [],
       cityText: '',
     };
   }
@@ -65,9 +51,9 @@ class App extends Component {
         </header>
         <div className="App-body">
           <div className="App-cities">
-            {this.state.cities.map(item =>
-              <CityItem key={item.name} item={item} removeItem={x => this.removeItem(x)} />)
-            }
+            {this.state.cities.map(item => (
+              <CityItem key={item.name} item={item} removeItem={x => this.removeItem(x)} />
+            ))}
           </div>
           <AddCity
             value={this.state.cityText}
