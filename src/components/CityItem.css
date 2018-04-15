@@ -6,6 +6,14 @@
   padding: 10px;
 }
 
+.city-item--flex {
+  display: flex;
+}
+
 .city-item__remove-button {
   color: red;
+}
+
+.city-item__text {
+  padding-top: 4px;
 }

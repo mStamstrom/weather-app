@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CityItem from './components/CityItem';
-import getCityWeather from './Api';
+import getCityWeather from './util/Api';
+import * as store from './util/Store';
 import './App.css';
 import AddCity from './components/AddCity';
 
@@ -8,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cities: [],
+      cities: store.getCities(),
       cityText: '',
     };
   }
@@ -19,6 +20,10 @@ class App extends Component {
 
   addCity() {
     const { cities, cityText } = this.state;
+    if (cities.find(x => x.name.toLowerCase() === cityText.toLowerCase()) !== undefined) {
+      // todo: add error handling
+      return;
+    }
     const newCity = {
       name: cityText,
       weather: 0,
@@ -27,6 +32,7 @@ class App extends Component {
       .then((res) => {
         newCity.weather = res.main.temp;
         cities.push(newCity);
+        store.addCity(newCity);
         this.setState({
           cities,
           cityText: '',
@@ -38,6 +44,7 @@ class App extends Component {
   removeItem(item) {
     const { cities } = this.state;
     const filteredCities = cities.filter(x => x.name !== item.name);
+    store.removeCity(item);
     this.setState({
       cities: filteredCities,
     });
