@@ -1,0 +1,45 @@
+.App {
+  text-align: center;
+  background-color: #5bd3ff;
+  color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.App-header {
+  height: 50px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-bottom: 3px solid white;
+  display: flex;
+}
+
+.App-menu {
+  margin: auto 0;
+}
+
+.App-title {
+  font-size: 1.5em;
+  margin: auto;
+}
+
+.App-body {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+}
+
+.App-cities {
+  flex: 2;
+}
+
+@media(min-width: 768px) {
+  .App-cities {
+    width: 50%;
+    margin: auto;
+  }
+}

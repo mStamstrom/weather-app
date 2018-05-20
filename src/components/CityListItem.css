@@ -1,0 +1,21 @@
+.city-list-item {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  border-bottom: 1px solid white;
+  padding: 10px;
+}
+
+.city-list-item--flex {
+  display: flex;
+  align-items: center;
+}
+
+.city-list-item__remove-button {
+  color: red;
+}
+
+.city-list-item__text {
+  padding-top: 4px;
+  padding-right: 5px;
+}
