@@ -12,7 +12,7 @@ export function getCurrentWeather(city: string) {
     });
 }
 
-export function getCurrentWeatherForPosition(lat: string, lon: string) {
+export function getCurrentWeatherForPosition(lat: number, lon: number) {
   return fetch(`${baseUrl}weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`)
     .then((res) => {
       if (res.status === 200) {
@@ -22,7 +22,7 @@ export function getCurrentWeatherForPosition(lat: string, lon: string) {
     });
 }
 
-export function getWeatherForecastForPosition(lat: string, lon: string) {
+export function getWeatherForecastForPosition(lat: number, lon: number) {
   return fetch(`${baseUrl}forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`)
     .then((res) => {
       if (res.status === 200) {
@@ -32,7 +32,7 @@ export function getWeatherForecastForPosition(lat: string, lon: string) {
     });
 }
 
-export function getCurrentWeathers(ids: string[]) {
+export function getCurrentWeathers(ids: any) {
   return fetch(`${baseUrl}group?id=${ids}&appid=${apiKey}&units=metric`)
     .then((res) => {
       if (res.status === 200) {
