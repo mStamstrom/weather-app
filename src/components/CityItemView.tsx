@@ -16,7 +16,6 @@ function formatDate(date: string) {
 
 const CityItemView: React.SFC<IProps> = ({ city, weatherList }) => (
   <div className="city-item">
-    {city.name}
     <div className="weather-list">
       {weatherList.map(item => (
         <div key={item.dt} className="weather-list-item">

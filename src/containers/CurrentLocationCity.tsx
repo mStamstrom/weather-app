@@ -1,5 +1,6 @@
 import * as React from 'react';
 import CityItemView from '../components/CityItemView';
+import Header from '../components/Header';
 import { City } from '../models/City';
 import { getWeatherForecastForPosition } from '../util/Api';
 
@@ -24,7 +25,14 @@ class CurrentLocationCity extends React.Component<{}, IState> {
   }
 
   public render() {
-    return <CityItemView city={this.state.city} weatherList={this.state.weatherList} />;
+    return (
+      <div>
+        <Header name={this.state.city.name} />
+        <div className="App-body">
+          <CityItemView city={this.state.city} weatherList={this.state.weatherList} />
+        </div>
+    </div>
+    );
   }
 }
 

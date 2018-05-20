@@ -53,11 +53,13 @@ class CityList extends React.Component<IProps, IState> {
             <CityListItem key={item.name} item={item} removeItem={this.removeItem} />
             ))}
         </div>
-        <AddCity
-          value={this.state.cityText}
-          onChange={this.onChange}
-          addCity={this.addCity}
-        />
+        <div className="App-cities">
+          <AddCity
+            value={this.state.cityText}
+            onChange={this.onChange}
+            addCity={this.addCity}
+          />
+        </div>
       </div>
     );
   }

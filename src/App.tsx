@@ -24,13 +24,6 @@ class App extends React.Component<{}, IState> {
     }
     return (
       <div className="App">
-        <header className="App-header">
-          <a href={`${baseUrl}/list`} className="App-menu">
-            <span className="fas fa-list" />
-          </a>
-          <h1 className="App-title">Weather app</h1>
-        </header>
-        <div className="App-body">
           <Router>
             <div>
               <Route exact path={`${baseUrl}/`} component={CurrentLocationCity} />
@@ -38,7 +31,6 @@ class App extends React.Component<{}, IState> {
               <Route path={`${baseUrl}/city/:id`} component={CityItem} />
             </div>
           </Router>
-        </div>
       </div>
     );
   }
