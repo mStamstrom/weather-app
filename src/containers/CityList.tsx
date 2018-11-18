@@ -55,9 +55,9 @@ class CityList extends React.Component<IProps, IState> {
         </div>
         <div className="App-cities">
           <AddCity
-            value={this.state.cityText}
             onChange={this.onChange}
             addCity={this.addCity}
+            cityText={this.state.cityText}
           />
         </div>
       </div>

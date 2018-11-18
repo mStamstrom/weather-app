@@ -24,13 +24,13 @@ class App extends React.Component<{}, IState> {
     }
     return (
       <div className="App">
-          <Router>
-            <div>
-              <Route exact path={`${baseUrl}/`} component={CurrentLocationCity} />
-              <Route path={`${baseUrl}/list`} component={CityList} />
-              <Route path={`${baseUrl}/city/:id`} component={CityItem} />
-            </div>
-          </Router>
+        <Router>
+          <div>
+            <Route exact path={`${baseUrl}/`} component={CurrentLocationCity} />
+            <Route path={`${baseUrl}/list`} component={CityList} />
+            <Route path={`${baseUrl}/city/:id`} component={CityItem} />
+          </div>
+        </Router>
       </div>
     );
   }

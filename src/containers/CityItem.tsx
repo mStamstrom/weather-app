@@ -33,7 +33,7 @@ class CityItem extends React.Component<IProps, IState> {
       <div>
         <Header name={this.state.city.name} />
         <div className="App-body">
-          <CityItemView city={this.state.city} weatherList={this.state.weatherList} />
+          <CityItemView weatherList={this.state.weatherList} />
         </div>
       </div>
     );
