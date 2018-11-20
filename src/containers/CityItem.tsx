@@ -1,12 +1,12 @@
 import * as React from 'react';
 import CityItemView from '../components/CityItemView';
-import Header from '../components/Header';
 import { City } from '../models/City';
+import { Weather } from '../models/Weather';
 import { getWeatherForecast } from '../util/Api';
 
 interface IState {
   city: City;
-  weatherList: City[];
+  weatherList: Weather[];
 }
 
 interface IProps {
@@ -30,12 +30,7 @@ class CityItem extends React.Component<IProps, IState> {
 
   public render() {
     return (
-      <div>
-        <Header name={this.state.city.name} />
-        <div className="App-body">
-          <CityItemView weatherList={this.state.weatherList} />
-        </div>
-      </div>
+      <CityItemView weatherList={this.state.weatherList} cityName={this.state.city.name}/>
     );
   }
 }

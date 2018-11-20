@@ -32,7 +32,10 @@
   flex-direction: column;
   font-size: 20px;
 }
-
+.route-container {
+  height: 100%;
+  width: 100%;
+}
 .App-cities {
   flex: 2;
 }

@@ -1,10 +1,12 @@
 import * as React from 'react';
 import { Weather } from '../models/Weather';
 import './CityItemView.css';
+import Header from './Header';
 import WeatherIconSelector from './WeatherIconSelector';
 
 interface IProps {
   weatherList: Weather[];
+  cityName: string;
 }
 
 interface IState {
@@ -33,17 +35,23 @@ class CityItemView extends React.PureComponent<IProps, IState> {
 
   public render () {
     return (
+      <div className="city-item-view">
+        <Header name={this.props.cityName} />
       <div className="city-item">
         <SelectedWeatherView weather={this.state.selectedWeather} />
+      </div>
+      <div className="footer">
         <div className="weather-list">
           {this.props.weatherList.map(item => <WeatherView key={item.dt} weather={item} changeSelectedWeather={this.changeSelectedWeather} />)}
         </div>
       </div>
+      </div>
     );
   }
-  private changeSelectedWeather = (selectedWeather: Weather
-  ) => {
-    this.setState({selectedWeather})
+  public changeSelectedWeather = (selectedWeather: Weather) => {
+    this.setState({
+      selectedWeather,
+    }, () => console.log('state change', this.state)); // tslint:disable-line
   }
 }
 
