@@ -21,9 +21,9 @@ function formatDate(date: string) {
 
 class CityItemView extends React.PureComponent<IProps, IState> {
   public static getDerivedStateFromProps(nextProps: IProps, prevState: IState) {
-    if (nextProps.weatherList.length > 0 && prevState.selectedWeather.name === undefined) {
+    if (nextProps.weatherList.length > 0 && prevState.selectedWeather.main === undefined) {
       return {
-        selectedWeather: nextProps.weatherList[0]
+        selectedWeather: nextProps.weatherList[0],
       }
     }
     return null;
@@ -49,9 +49,7 @@ class CityItemView extends React.PureComponent<IProps, IState> {
     );
   }
   public changeSelectedWeather = (selectedWeather: Weather) => {
-    this.setState({
-      selectedWeather,
-    }, () => console.log('state change', this.state)); // tslint:disable-line
+    this.setState({ selectedWeather });
   }
 }
 
