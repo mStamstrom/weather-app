@@ -88,11 +88,25 @@ const SelectedWeatherView: React.SFC<IPropsView> = ({ weather }) => {
     return null;
   }
   return (
-    <div>
+    <div className="selected-weather-view">
       <div className="current-weather">
         {Math.round(weather.main.temp)}
+        <WeatherIconSelector type={weather.weather[0].main} />
       </div>
-      <WeatherIconSelector type={weather.weather[0].main} />
+      <div className="detailed-data">
+        <div className="detailed-data-column">
+          <div className="detailed-data__label">Wind</div>
+          <div>{weather.wind.speed} m/s <span><i style={{ transform: `rotate(${weather.wind.deg}deg`}} className="fas fa-arrow-up"/></span>{}</div>
+        </div>
+        <div className="detailed-data-column">
+        <div className="detailed-data__label">Humidity</div>
+          <div>{weather.main.humidity}%</div>
+        </div>
+        <div className="detailed-data-column">
+        <div className="detailed-data__label">Pressure</div>
+          <div>{weather.main.pressure}hPa</div>
+        </div>
+      </div>
     </div>
   );
 }

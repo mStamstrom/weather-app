@@ -6,11 +6,28 @@
 
 .city-item-view {
   display: grid;
-  grid-template-rows: 10% 75% 10%;
+  grid-template-rows: 15% 70% 15%;
   grid-template-columns: 5% 90% 5%;
   height: 100%;
   width: 100%;
 }
+
+.detailed-data__label {
+  font-size: 16px;
+}
+
+.selected-weather-view {
+  height: 100%;
+  display: grid;
+  grid-template-rows: [temperatur]90% [details]auto;
+}
+
+.detailed-data {
+  display: grid;
+  grid-template-columns: [wind]33% [humidity]33% [pressure]33%;
+}
+
+
 
 .footer {
   grid-column-start: 2;
