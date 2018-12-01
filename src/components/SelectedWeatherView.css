@@ -1,0 +1,20 @@
+
+.detailed-data__label {
+  font-size: 16px;
+}
+
+.selected-weather-view {
+  height: 100%;
+  display: grid;
+  grid-template-rows: [temperatur]90% [details]auto;
+}
+
+.detailed-data {
+  display: grid;
+  grid-template-columns: [wind]33% [humidity]33% [pressure]33%;
+}
+
+
+.current-weather {
+  font-size: 100px;
+}

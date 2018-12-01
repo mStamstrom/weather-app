@@ -2,7 +2,8 @@ import * as React from 'react';
 import { Weather } from '../models/Weather';
 import './CityItemView.css';
 import Header from './Header';
-import WeatherIconSelector from './WeatherIconSelector';
+import SelectedWeatherView from './SelectedWeatherView';
+import WeatherListItem from './WeatherListItem';
 
 interface IProps {
   weatherList: Weather[];
@@ -11,25 +12,60 @@ interface IProps {
 
 interface IState {
   selectedWeather: Weather;
+  currentDay: string;
+  weatherIcon: string;
 }
 
-function formatDate(date: string) {
-  const formatedDate = new Date(date.replace(' ', 'T'));
-  const time = `${formatedDate.getHours()}`.length === 1 ? `0${formatedDate.getHours()}:00` : `${formatedDate.getHours()}:00`;
-  return `${formatedDate.getMonth() + 1} / ${formatedDate.getDate()} ${time}`;
+function getSelectedDay(dateTime: number): string {
+  const date = new Date(dateTime*1000);
+  const dayOfWeek = date.getDay();
+  if (dayOfWeek === (new Date().getDay())) {
+    return 'Today';
+  }
+  switch (dayOfWeek) {
+    case 0:
+      return 'Sunday';
+    case 1:
+      return 'Monday';
+    case 2:
+      return 'Tuesday';
+    case 3:
+      return 'Wednesday';
+    case 4:
+      return 'Thursday';
+    case 5:
+      return 'Friday';
+    case 6:
+      return 'Saturday';
+    default:
+      return '';
+  }
 }
 
+function getWeatherIcon(selectedWeather: Weather): string {
+  if (selectedWeather.weather && selectedWeather.weather.length > 0) {
+    return selectedWeather.weather[0].main;
+  }
+  return '';
+}
+
+// TODO: currentDay should be calc on scroll not click
 class CityItemView extends React.PureComponent<IProps, IState> {
   public static getDerivedStateFromProps(nextProps: IProps, prevState: IState) {
     if (nextProps.weatherList.length > 0 && prevState.selectedWeather.main === undefined) {
+      const selectedWeather = nextProps.weatherList[0];
       return {
-        selectedWeather: nextProps.weatherList[0],
+        currentDay: getSelectedDay(selectedWeather.dt),
+        selectedWeather,
+        weatherIcon: getWeatherIcon(selectedWeather),
       }
     }
     return null;
   }
   public state = {
+    currentDay: 'Today',
     selectedWeather: new Weather(),
+    weatherIcon: '',
   }
 
 
@@ -38,75 +74,27 @@ class CityItemView extends React.PureComponent<IProps, IState> {
       <div className="city-item-view">
         <Header name={this.props.cityName} />
       <div className="city-item">
-        <SelectedWeatherView weather={this.state.selectedWeather} />
+        <SelectedWeatherView
+          weather={this.state.selectedWeather}
+          weatherIcon={this.state.weatherIcon}
+        />
       </div>
       <div className="footer">
+        <div className="footer__day">{this.state.currentDay}</div>
         <div className="weather-list">
-          {this.props.weatherList.map(item => <WeatherView key={item.dt} weather={item} changeSelectedWeather={this.changeSelectedWeather} />)}
+          {this.props.weatherList.map(item => <WeatherListItem key={item.dt} weather={item} changeSelectedWeather={this.changeSelectedWeather} />)}
         </div>
       </div>
       </div>
     );
   }
   public changeSelectedWeather = (selectedWeather: Weather) => {
-    this.setState({ selectedWeather });
+    this.setState({
+      currentDay: getSelectedDay(selectedWeather.dt),
+      selectedWeather,
+      weatherIcon: getWeatherIcon(selectedWeather),
+    });
   }
 }
 
 export default CityItemView;
-
-interface IWeatherViewProps {
-  weather: Weather;
-  changeSelectedWeather: ((weather: Weather) => void);
-}
-
-const WeatherView: React.SFC<IWeatherViewProps> = ({weather, changeSelectedWeather}) => {
-  const onClick = () => changeSelectedWeather(weather);
-
-  return (
-    <button onClick={onClick} className="weather-list-item-button">
-      <div className="weather-list-date">
-        {formatDate(weather.dt_txt)}
-      </div>
-      <div className="weather-item">
-        <div>
-          {Math.round(weather.main.temp)}
-        </div>
-        <div>
-          <WeatherIconSelector type={weather.weather[0].main} />
-        </div>
-      </div>
-    </button>
-  );
-}
-
-interface IPropsView {
-  weather: Weather;
-}
-const SelectedWeatherView: React.SFC<IPropsView> = ({ weather }) => {
-  if (weather.main === null || weather.main === undefined) {
-    return null;
-  }
-  return (
-    <div className="selected-weather-view">
-      <div className="current-weather">
-        {Math.round(weather.main.temp)}
-        <WeatherIconSelector type={weather.weather[0].main} />
-      </div>
-      <div className="detailed-data">
-        <div className="detailed-data-column">
-          <div className="detailed-data__label">Wind</div>
-          <div>{weather.wind.speed} m/s <span><i style={{ transform: `rotate(${weather.wind.deg}deg`}} className="fas fa-arrow-up"/></span>{}</div>
-        </div>
-        <div className="detailed-data-column">
-        <div className="detailed-data__label">Humidity</div>
-          <div>{weather.main.humidity}%</div>
-        </div>
-        <div className="detailed-data-column">
-        <div className="detailed-data__label">Pressure</div>
-          <div>{weather.main.pressure}hPa</div>
-        </div>
-      </div>
-    </div>
-  );
-}
