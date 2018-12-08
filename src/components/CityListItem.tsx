@@ -18,7 +18,7 @@ const CityListItem: React.SFC<IProps> = ({ item, removeItem }) => {
         <span className="city-list-item__text">
           {Math.round(item.main.temp)}
         </span>
-        <WeatherIconSelector type={item.weather[0].main} />
+        <WeatherIconSelector icon={item.weather[0].main} />
         <button type="button" className="city-list-item__remove-button" onClick={removeItemHandler}>
           <i className="fa fa-2x fa-minus-circle" />
         </button>

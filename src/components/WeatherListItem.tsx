@@ -25,7 +25,7 @@ const WeatherListItem: React.SFC<IWeatherViewProps> = ({weather, changeSelectedW
         {formatDate(weather.dt_txt)}
       </div>
       <div>
-      <WeatherIconSelector type={weather.weather[0].main} />
+      <WeatherIconSelector icon={weather.weather[0].main} />
       </div>
       <div>
         {Math.round(weather.main.temp)}°

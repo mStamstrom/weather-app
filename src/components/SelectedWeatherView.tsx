@@ -7,6 +7,13 @@ interface IPropsView {
   weather: Weather;
   weatherIcon: string;
 }
+function getWeatherIcon(selectedWeather: Weather): string {
+  if (selectedWeather.weather && selectedWeather.weather.length > 0) {
+    return selectedWeather.weather[0].main;
+  }
+  return '';
+}
+
 const SelectedWeatherView: React.SFC<IPropsView> = ({ weather, weatherIcon }) => {
   if (weather.main === null || weather.main === undefined) {
     return null;
@@ -17,12 +24,16 @@ const SelectedWeatherView: React.SFC<IPropsView> = ({ weather, weatherIcon }) =>
         <div>
           {Math.round(weather.main.temp)}°
         </div>
-        <WeatherIconSelector type={weatherIcon} />
+        <WeatherIconSelector icon={getWeatherIcon(weather)} />
       </div>
       <div className="detailed-data">
         <div>
           <div className="detailed-data__label">Wind</div>
-          <div>{weather.wind.speed} m/s <span><i style={{ transform: `rotate(${weather.wind.deg}deg`}} className="fas fa-arrow-up"/></span>{}</div>
+          <div>{weather.wind.speed} m/s
+            <span>
+              <i style={{ transform: `rotate(${weather.wind.deg}deg`}} className="fas fa-arrow-up"/>
+            </span>
+          </div>
         </div>
         <div>
           <div className="detailed-data__label">Humidity</div>
