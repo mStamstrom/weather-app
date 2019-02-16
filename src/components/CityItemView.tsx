@@ -81,7 +81,7 @@ class CityItemView extends React.PureComponent<IProps, IState> {
       </div>
       <div className="footer">
         <div className="footer__day">{this.state.currentDay}</div>
-        <div className="weather-list">
+        <div className="weather-list scrollbar">
           {this.props.weatherList.map(item => <WeatherListItem key={item.dt} weather={item} changeSelectedWeather={this.changeSelectedWeather} />)}
         </div>
       </div>
