@@ -6,7 +6,8 @@ import './WeatherListItem.css';
 
 interface IWeatherViewProps {
   weather: Weather;
-  changeSelectedWeather: ((weather: Weather) => void);
+  selectedWeather: Weather;
+  changeSelectedWeather: ((weather: Weather) => void); // TODO: remove till parent component
 }
 
 
@@ -16,11 +17,13 @@ function formatDate(date: string) {
   return time;
 }
 
-const WeatherListItem: React.SFC<IWeatherViewProps> = ({weather, changeSelectedWeather}) => {
+const WeatherListItem: React.SFC<IWeatherViewProps> = ({weather, selectedWeather, changeSelectedWeather}) => {
   const onClick = () => changeSelectedWeather(weather);
 
+  const isSelected = weather.dt === selectedWeather.dt;
+
   return (
-    <button onClick={onClick} className="weather-list-item">
+    <button onClick={onClick} className={`weather-list-item ${isSelected ? 'weather-list-item--selected' : ''}`}>
       <div className="weather-list-date">
         {formatDate(weather.dt_txt)}
       </div>

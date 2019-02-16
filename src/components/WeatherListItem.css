@@ -2,3 +2,7 @@
   text-decoration: none;
   padding-left: 12px;
 }
+
+.weather-list-item--selected {
+  opacity: 0.3;
+}

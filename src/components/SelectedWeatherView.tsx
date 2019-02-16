@@ -5,7 +5,6 @@ import WeatherIconSelector from "./WeatherIconSelector";
 
 interface IPropsView {
   weather: Weather;
-  weatherIcon: string;
 }
 function getWeatherIcon(selectedWeather: Weather): string {
   if (selectedWeather.weather && selectedWeather.weather.length > 0) {
@@ -14,7 +13,7 @@ function getWeatherIcon(selectedWeather: Weather): string {
   return '';
 }
 
-const SelectedWeatherView: React.SFC<IPropsView> = ({ weather, weatherIcon }) => {
+const SelectedWeatherView: React.SFC<IPropsView> = ({ weather }) => {
   if (weather.main === null || weather.main === undefined) {
     return null;
   }

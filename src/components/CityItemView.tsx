@@ -76,13 +76,13 @@ class CityItemView extends React.PureComponent<IProps, IState> {
       <div className="city-item">
         <SelectedWeatherView
           weather={this.state.selectedWeather}
-          weatherIcon={this.state.weatherIcon}
         />
       </div>
       <div className="footer">
         <div className="footer__day">{this.state.currentDay}</div>
         <div className="weather-list scrollbar">
-          {this.props.weatherList.map(item => <WeatherListItem key={item.dt} weather={item} changeSelectedWeather={this.changeSelectedWeather} />)}
+          {this.props.weatherList.map(item =>
+            <WeatherListItem key={item.dt} weather={item} selectedWeather={this.state.selectedWeather} changeSelectedWeather={this.changeSelectedWeather} />)}
         </div>
       </div>
       </div>
