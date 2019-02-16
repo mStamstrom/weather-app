@@ -21,8 +21,9 @@ const SelectedWeatherView: React.SFC<IPropsView> = ({ weather, weatherIcon }) =>
   return (
     <div className="selected-weather-view">
       <div className="current-weather">
-        <div>
-          {Math.round(weather.main.temp)}°
+        <div id="current-temperature">
+          <span className="temperature">{Math.round(weather.main.temp)}</span>
+          <span>°</span>
         </div>
         <WeatherIconSelector icon={getWeatherIcon(weather)} />
       </div>
