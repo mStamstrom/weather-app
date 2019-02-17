@@ -1,0 +1,16 @@
+.day-container {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid white;
+}
+
+.day-weather-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.day-title {
+  text-align: left;
+  white-space: nowrap;
+  padding: 0 10px;
+}

@@ -1,20 +1,13 @@
 import * as React from "react";
 import { Weather } from "src/models/Weather";
+import { formatDate } from "src/util/DateHelper";
 import WeatherIconSelector from "./WeatherIconSelector";
 import './WeatherListItem.css';
-
 
 interface IWeatherViewProps {
   weather: Weather;
   selectedWeather: Weather;
   changeSelectedWeather: ((weather: Weather) => void); // TODO: remove till parent component
-}
-
-
-function formatDate(date: string) {
-  const formatedDate = new Date(date.replace(' ', 'T'));
-  const time = `${formatedDate.getHours()}`.length === 1 ? `0${formatedDate.getHours()}` : `${formatedDate.getHours()}`;
-  return time;
 }
 
 const WeatherListItem: React.SFC<IWeatherViewProps> = ({weather, selectedWeather, changeSelectedWeather}) => {
