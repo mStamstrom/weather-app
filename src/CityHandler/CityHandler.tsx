@@ -1,5 +1,6 @@
 /* tslint:disable no-empty-interface */
 import * as React from 'react';
+import Header from '../header/Header';
 import { City } from '../models/City';
 import { LocalStorageCity } from '../models/LocalStorageCity';
 import { getCurrentWeather, getCurrentWeatherForPosition, getCurrentWeathers } from '../util/Api';
@@ -49,6 +50,7 @@ class CityHandler extends React.Component<IProps, IState> {
     return (
       <div>
         <div className="App-cities">
+          <Header name="City view" />
           {this.state.cities.map(item => (
             <CityListItem key={item.name} item={item} removeItem={this.removeItem} />
             ))}
