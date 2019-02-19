@@ -1,14 +1,14 @@
 import * as React from 'react';
-import CityItemView from '../components/CityItemView';
 import { City } from '../models/City';
 import { getWeatherForecastForPosition } from '../util/Api';
+import WeatherDisplayer from './WeatherDisplayer';
 
 interface IState {
   city: City,
   weatherList: City[],
 }
 
-class CurrentLocationCity extends React.Component<{}, IState> {
+class CurrentLocationWeatherHandler extends React.Component<{}, IState> {
   public state = {
     city: new City(),
     weatherList: [],
@@ -24,16 +24,8 @@ class CurrentLocationCity extends React.Component<{}, IState> {
   }
 
   public render() {
-    return <CityItemView weatherList={this.state.weatherList} cityName={this.state.city.name} />;
-    // return (
-    //   <div>
-    //     <Header name={this.state.city.name} />
-    //     <div className="App-body">
-    //       <CityItemView weatherList={this.state.weatherList} cityName={this.state.city.name} />
-    //     </div>
-    // </div>
-    // );
+    return <WeatherDisplayer weatherList={this.state.weatherList} cityName={this.state.city.name} />;
   }
 }
 
-export default CurrentLocationCity;
+export default CurrentLocationWeatherHandler;

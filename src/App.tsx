@@ -2,9 +2,9 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
-import CityItem from './containers/CityItem';
-import CityList from './containers/CityList';
-import CurrentLocationCity from './containers/CurrentLocationCity';
+import CityHandler from './CityHandler/CityHandler';
+import CurrentLocationWeatherHandler from './WeatherHandler/CurrentLocationWeatherHandler';
+import WeatherHandler from './WeatherHandler/WeatherHandler';
 
 const baseUrl = process.env.PUBLIC_URL;
 
@@ -26,9 +26,9 @@ class App extends React.Component<{}, IState> {
       <div className="App">
         <Router>
           <div className="route-container">
-            <Route exact path={`${baseUrl}/`} component={CurrentLocationCity} />
-            <Route path={`${baseUrl}/list`} component={CityList} />
-            <Route path={`${baseUrl}/city/:id`} component={CityItem} />
+            <Route exact path={`${baseUrl}/`} component={CurrentLocationWeatherHandler} />
+            <Route path={`${baseUrl}/list`} component={CityHandler} />
+            <Route path={`${baseUrl}/city/:id`} component={WeatherHandler} />
           </div>
         </Router>
       </div>

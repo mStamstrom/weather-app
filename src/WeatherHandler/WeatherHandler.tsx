@@ -1,8 +1,8 @@
 import * as React from 'react';
-import CityItemView from '../components/CityItemView';
 import { City } from '../models/City';
 import { Weather } from '../models/Weather';
 import { getWeatherForecast } from '../util/Api';
+import WeatherDisplayer from './WeatherDisplayer';
 
 interface IState {
   city: City;
@@ -12,7 +12,7 @@ interface IState {
 interface IProps {
   match: {params: {id: string}};
 }
-class CityItem extends React.Component<IProps, IState> {
+class WeatherHandler extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
     this.state = {
@@ -30,9 +30,9 @@ class CityItem extends React.Component<IProps, IState> {
 
   public render() {
     return (
-      <CityItemView weatherList={this.state.weatherList} cityName={this.state.city.name}/>
+      <WeatherDisplayer weatherList={this.state.weatherList} cityName={this.state.city.name}/>
     );
   }
 }
 
-export default CityItem;
+export default WeatherHandler;

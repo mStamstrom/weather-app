@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { City } from '../models/City';
+import WeatherIconSelector from '../shared/WeatherIconSelector';
 import './CityListItem.css';
-import WeatherIconSelector from './WeatherIconSelector';
 
 interface IProps {
   item: City;

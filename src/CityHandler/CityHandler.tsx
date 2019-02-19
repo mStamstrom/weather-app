@@ -1,11 +1,11 @@
 /* tslint:disable no-empty-interface */
 import * as React from 'react';
-import AddCity from '../components/AddCity';
-import CityListItem from '../components/CityListItem';
 import { City } from '../models/City';
 import { LocalStorageCity } from '../models/LocalStorageCity';
 import { getCurrentWeather, getCurrentWeatherForPosition, getCurrentWeathers } from '../util/Api';
 import * as store from '../util/Store';
+import AddCity from './AddCity';
+import CityListItem from './CityListItem';
 
 interface IProps {}
 interface IState {
@@ -13,7 +13,7 @@ interface IState {
   cityText: string,
 }
 
-class CityList extends React.Component<IProps, IState> {
+class CityHandler extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
     this.state = {
@@ -102,4 +102,4 @@ class CityList extends React.Component<IProps, IState> {
   }
 }
 
-export default CityList;
+export default CityHandler;

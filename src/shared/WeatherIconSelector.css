@@ -1,0 +1,11 @@
+.weather-icon--sun {
+  color: yellow;
+}
+
+.weather-icon--clouds {
+  color: lightgray;
+}
+
+.weather-icon--rain {
+  color: blue;
+}

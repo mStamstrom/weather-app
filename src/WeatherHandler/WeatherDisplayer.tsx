@@ -1,8 +1,8 @@
 import * as React from 'react';
+import Header from '../header/Header';
 import { Weather } from '../models/Weather';
-import './CityItemView.css';
-import Header from './Header';
-import SelectedWeatherView from './SelectedWeatherView';
+import SelectedWeather from './SelectedWeather';
+import './WeatherDisplayer.css';
 import { WeatherList } from './WeatherList';
 
 interface IProps {
@@ -22,7 +22,7 @@ function getWeatherIcon(selectedWeather: Weather): string {
   return '';
 }
 
-class CityItemView extends React.PureComponent<IProps, IState> {
+class WeatherDisplayer extends React.PureComponent<IProps, IState> {
   public static getDerivedStateFromProps(nextProps: IProps, prevState: IState) {
     if (nextProps.weatherList.length > 0 && prevState.selectedWeather.main === undefined) {
       const selectedWeather = nextProps.weatherList[0];
@@ -44,7 +44,7 @@ class CityItemView extends React.PureComponent<IProps, IState> {
       <div className="city-item-view">
         <Header name={this.props.cityName} />
       <div className="city-item">
-        <SelectedWeatherView
+        <SelectedWeather
           weather={this.state.selectedWeather}
         />
       </div>
@@ -62,4 +62,4 @@ class CityItemView extends React.PureComponent<IProps, IState> {
   }
 }
 
-export default CityItemView;
+export default WeatherDisplayer;

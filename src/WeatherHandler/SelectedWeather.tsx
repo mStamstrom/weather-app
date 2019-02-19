@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Weather } from "src/models/Weather";
-import './SelectedWeatherView.css';
-import WeatherIconSelector from "./WeatherIconSelector";
+import WeatherIconSelector from "../shared/WeatherIconSelector";
+import './SelectedWeather.css';
 
 interface IPropsView {
   weather: Weather;
