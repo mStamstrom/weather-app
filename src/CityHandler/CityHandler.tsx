@@ -6,6 +6,7 @@ import { LocalStorageCity } from '../models/LocalStorageCity';
 import { getCurrentWeather, getCurrentWeatherForPosition, getCurrentWeathers } from '../util/Api';
 import * as store from '../util/Store';
 import AddCity from './AddCity';
+import './CityHandler.css';
 import CityListItem from './CityListItem';
 
 interface IProps {}
@@ -48,7 +49,7 @@ class CityHandler extends React.Component<IProps, IState> {
 
   public render() {
     return (
-      <div>
+      <div className="full-scale city-handler">
         <div className="App-cities">
           <Header name="City view" />
           {this.state.cities.map(item => (

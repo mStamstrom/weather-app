@@ -17,9 +17,9 @@ const WeatherListItem: React.SFC<IWeatherViewProps> = ({weather, selectedWeather
 
   return (
     <button onClick={onClick} className={`weather-list-item ${isSelected ? 'weather-list-item--selected' : ''}`}>
-      <div className="weather-list-date">
+      <span>
         {formatDate(weather.dt_txt)}
-      </div>
+      </span>
       <div>
       <WeatherIconSelector icon={weather.weather[0].main} />
       </div>

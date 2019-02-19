@@ -1,6 +1,7 @@
 .weather-list-item {
   text-decoration: none;
   padding-left: 12px;
+  color: white;
 }
 
 .weather-list-item--selected {

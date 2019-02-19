@@ -1,5 +1,5 @@
 
-.city-item-view {
+.weather-displayer {
   display: grid;
   grid-template-rows: 15% 70% 15%;
   grid-template-columns: 5% 90% 5%;
@@ -29,4 +29,20 @@
   grid-row-end: 2;
   grid-column-start: 2;
   grid-column-end: 2;
+}
+
+.weather-displayer--sun {
+  background-color: var(--sun);
+}
+.weather-displayer--rain {
+  background-color: var(--rain);
+}
+.weather-displayer--snow {
+  background-color: var(--snow);
+}
+.weather-displayer--clouds {
+  background-color: var(--clouds);
+}
+.weather-displayer--night {
+  background-color: var(--night);
 }
