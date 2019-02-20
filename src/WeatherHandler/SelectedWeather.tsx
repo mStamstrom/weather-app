@@ -1,16 +1,9 @@
 import * as React from "react";
 import { Weather } from "src/models/Weather";
-import WeatherIconSelector from "../shared/WeatherIconSelector";
 import './SelectedWeather.css';
 
 interface IPropsView {
   weather: Weather;
-}
-function getWeatherIcon(selectedWeather: Weather): string {
-  if (selectedWeather.weather && selectedWeather.weather.length > 0) {
-    return selectedWeather.weather[0].main;
-  }
-  return '';
 }
 
 const SelectedWeatherView: React.SFC<IPropsView> = ({ weather }) => {
@@ -23,7 +16,6 @@ const SelectedWeatherView: React.SFC<IPropsView> = ({ weather }) => {
         <div>
           {Math.round(weather.main.temp)}°
         </div>
-        <WeatherIconSelector icon={getWeatherIcon(weather)} />
       </div>
       <div className="detailed-data">
         <div>

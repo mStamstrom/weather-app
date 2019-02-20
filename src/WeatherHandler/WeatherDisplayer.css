@@ -5,6 +5,9 @@
   grid-template-columns: 5% 90% 5%;
   height: 100%;
   width: 100%;
+  background-size: cover;
+  background-repeat:   no-repeat;
+  background-position: center center; 
 }
 
 .footer__day {
@@ -32,17 +35,17 @@
 }
 
 .weather-displayer--sun {
-  background-color: var(--sun);
+  background-image: url('../img/sunny.jpg');
 }
 .weather-displayer--rain {
-  background-color: var(--rain);
+  background-image: url('../img/rain.jpg');
 }
 .weather-displayer--snow {
-  background-color: var(--snow);
+  background-image: url('../img/snow.jpg');
 }
 .weather-displayer--clouds {
-  background-color: var(--clouds);
+  background-image: url('../img/clouds.jpg');
 }
 .weather-displayer--night {
-  background-color: var(--night);
+  background-image: url('../img/night.jpg');
 }
