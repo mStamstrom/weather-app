@@ -1,0 +1,10 @@
+.error {
+  width: 100%;
+  background-color: lightcoral;
+  border: 1px solid red;
+  padding: 10px;
+}
+
+.error-text {
+  padding-left: 10px;
+}
