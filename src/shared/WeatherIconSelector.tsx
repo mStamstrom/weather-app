@@ -1,7 +1,6 @@
 import { faCloud, faSnowflake, faSun, faTint } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as React from 'react';
-import './WeatherIconSelector.css';
 
 interface IWeatherIconProps {
   icon: string;
