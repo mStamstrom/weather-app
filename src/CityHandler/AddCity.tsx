@@ -8,7 +8,7 @@ interface IProps {
 }
 
 const AddCity: React.SFC<IProps> = ({ addCity, onChange, cityText }) => (
-  <div className="add-city">
+  <form onSubmit={addCity} className="add-city">
     <span className="add-city__header">
       Lägg till stad
     </span>
@@ -16,11 +16,11 @@ const AddCity: React.SFC<IProps> = ({ addCity, onChange, cityText }) => (
       <div className="add-city-input-container">
         <input type="text" className="add-city-input-field__input" onChange={onChange} value={cityText} />}
       </div>
-      <button type="button" onClick={addCity}>
+      <button type="submit">
         <i className="fas fa-2x fa-plus-circle" />
       </button>
     </div>
-  </div>
+  </form>
 );
 
 export default AddCity;

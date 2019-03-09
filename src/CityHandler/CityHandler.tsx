@@ -83,7 +83,8 @@ class CityHandler extends React.Component<IProps, IState> {
     }
   }
 
-  private addCity() {
+  private addCity(e: any) {
+    e.preventDefault();
     const { cities, cityText } = this.state;
     if (cities.find(x => x.name.toLowerCase() === cityText.toLowerCase()) !== undefined) {
       // todo: add error handling
