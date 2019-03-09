@@ -87,7 +87,7 @@ class CityHandler extends React.Component<IProps, IState> {
     e.preventDefault();
     const { cities, cityText } = this.state;
     if (cities.find(x => x.name.toLowerCase() === cityText.toLowerCase()) !== undefined) {
-      // todo: add error handling
+      this.setState({ error: 'City already exists' });
       return;
     }
     getCurrentWeather(cityText)

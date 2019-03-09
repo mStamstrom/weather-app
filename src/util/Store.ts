@@ -15,6 +15,6 @@ export function addCity(city: LocalStorageCity) {
 
 export function removeCity(city: City) {
   const cities = getCities();
-  const filteredCities = cities.filter(x => x.name !== city.name);
+  const filteredCities = cities.filter(x => x.name.toLowerCase() !== city.name.toLowerCase());
   localStorage.setItem(localStorageCities, JSON.stringify(filteredCities));
 }
