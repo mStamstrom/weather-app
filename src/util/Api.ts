@@ -1,6 +1,5 @@
-
+import { apiKey } from './Keys';
 const baseUrl = 'https://api.openweathermap.org/data/2.5/';
-const apiKey = '6a703ad20e8fe394b475a7a2450b2c65';
 
 export function getCurrentWeather(city: string) {
   return fetch(`${baseUrl}weather?q=${city}&appid=${apiKey}&units=metric`)

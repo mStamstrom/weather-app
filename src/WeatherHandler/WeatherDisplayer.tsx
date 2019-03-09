@@ -72,14 +72,14 @@ class WeatherDisplayer extends React.PureComponent<IProps, IState> {
     return (
       <div className={`weather-displayer ${backgroundClass}`}>
         <Header name={this.props.cityName} />
-      <div className="city-item">
-        <SelectedWeather
-          weather={this.state.selectedWeather}
-        />
-      </div>
-      <div className="footer">
-        <WeatherList weatherList={this.props.weatherList} selectedWeather={this.state.selectedWeather} changeSelectedWeather={this.changeSelectedWeather} />
-      </div>
+        <div className="city-item">
+          <SelectedWeather
+            weather={this.state.selectedWeather}
+          />
+        </div>
+        <div className="footer">
+          <WeatherList weatherList={this.props.weatherList} selectedWeather={this.state.selectedWeather} changeSelectedWeather={this.changeSelectedWeather} />
+        </div>
       </div>
     );
   }

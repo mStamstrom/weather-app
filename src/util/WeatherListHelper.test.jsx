@@ -1,3 +1,5 @@
+/// <reference types="jest" />
+
 import { structureWeatherIntoDays } from './WeatherListHelper';
 
 describe('weatherListHelper', () => {

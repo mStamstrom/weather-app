@@ -13,9 +13,8 @@ const SelectedWeatherView: React.SFC<IPropsView> = ({ weather }) => {
   return (
     <div className="selected-weather-view">
       <div className="current-weather">
-        <div>
-          {Math.round(weather.main.temp)}°
-        </div>
+        <span className="current-temperature">{Math.round(weather.main.temp)}</span>
+        <span>°</span>
       </div>
       <div className="detailed-data">
         <div>
