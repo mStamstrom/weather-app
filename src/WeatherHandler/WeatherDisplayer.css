@@ -34,6 +34,12 @@
   grid-column-end: 2;
 }
 
+body::after{
+  /* preload background images*/
+  position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
+  content:url('../img/sunny.jpg') url('../img/rain.jpg') url('../img/snow.jpg') url('../img/clouds.jpg') url('../img/night.jpg');
+}
+
 .weather-displayer--sun {
   background-image: url('../img/sunny.jpg');
 }
