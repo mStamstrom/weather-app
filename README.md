@@ -1,3 +1,4 @@
+# Weather app
 This app is an weather app created with create-react-app and typescript.
 The app is also deployed to github pages at: https://marcusalfredsson.github.io/weather-app.
 The app uses open weather api as weather source.
