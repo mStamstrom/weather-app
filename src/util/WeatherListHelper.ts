@@ -1,7 +1,7 @@
-import { Weather } from "src/models/Weather";
+import { Weather } from "../models/Weather";
 
 export function structureWeatherIntoDays(weatherList: Weather[]): any {
-  const sortedWeather = {};
+  const sortedWeather: any = {};
   for(const weather of weatherList) {
     const dateString = weather.dt_txt.split(' ')[0];
     if (Object.keys(sortedWeather).find(x => x === dateString)) {

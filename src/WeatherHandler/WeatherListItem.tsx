@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Weather } from "src/models/Weather";
-import { formatDate } from "src/util/DateHelper";
+import { Weather } from "../models/Weather";
+import { formatDate } from "../util/DateHelper";
 import WeatherIconSelector from "../shared/WeatherIconSelector";
 import './WeatherListItem.css';
 

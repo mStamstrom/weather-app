@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Weather } from "src/models/Weather";
+import { Weather } from "../models/Weather";
 import './SelectedWeather.css';
 
 interface IPropsView {

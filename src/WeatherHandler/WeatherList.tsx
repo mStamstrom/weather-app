@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Weather } from 'src/models/Weather';
-import { getDayFromDateString } from 'src/util/DateHelper';
-import { structureWeatherIntoDays } from 'src/util/WeatherListHelper';
+import { Weather } from '../models/Weather';
+import { getDayFromDateString } from '../util/DateHelper';
+import { structureWeatherIntoDays } from '../util/WeatherListHelper';
 import './WeatherList.css';
 import WeatherListItem from './WeatherListItem';
 

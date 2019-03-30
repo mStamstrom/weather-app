@@ -52,7 +52,7 @@ function getBackgroundClass(selectedWeather: Weather): string {
 
 class WeatherDisplayer extends React.PureComponent<IProps, IState> {
   public static getDerivedStateFromProps(nextProps: IProps, prevState: IState) {
-    if (nextProps.weatherList.length > 0 && prevState.selectedWeather.main === undefined) {
+    if (nextProps.weatherList.length > 0 && prevState.selectedWeather.name === '') {
       const selectedWeather = nextProps.weatherList[0];
       return {
         selectedWeather,
