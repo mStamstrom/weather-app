@@ -13,7 +13,6 @@ import Error from './Error';
 interface IProps {}
 interface IState {
   cities: City[],
-  cityText: string,
   error: string,
 }
 
@@ -22,11 +21,9 @@ class CityHandler extends React.Component<IProps, IState> {
     super(props);
     this.state = {
       cities: [],
-      cityText: '',
       error: '',
     };
     this.removeItem = this.removeItem.bind(this);
-    this.onChange = this.onChange.bind(this);
     this.addCity = this.addCity.bind(this);
   }
 
@@ -65,27 +62,15 @@ class CityHandler extends React.Component<IProps, IState> {
         </div>
         <div className="App-cities">
           <AddCity
-            onChange={this.onChange}
             addCity={this.addCity}
-            cityText={this.state.cityText}
           />
         </div>
       </div>
     );
   }
 
-  private onChange(event: any) {
-    if (event === null) {
-      return;
-    }
-    if (event.target !== null && event.target.value !== null) {
-      this.setState({ cityText: event.target.value }); // tslint: disable-line
-    }
-  }
-
-  private addCity(e: any) {
-    e.preventDefault();
-    const { cities, cityText } = this.state;
+  private addCity(cityText: string) {
+    const { cities } = this.state;
     if (cities.find(x => x.name.toLowerCase() === cityText.toLowerCase()) !== undefined) {
       this.setState({ error: 'City already exists' });
       return;
@@ -96,7 +81,6 @@ class CityHandler extends React.Component<IProps, IState> {
         store.addCity(new LocalStorageCity(res.id, cityText));
         this.setState({
           cities,
-          cityText: '',
         });
       })
       .catch(() => this.setState({ error: 'Could not get weather for specified city' }));
