@@ -49,8 +49,6 @@ class CityHandler extends React.Component<IProps, IState> {
   }
 
   public render() {
-    console.log('render', this.state.cities);
-    
     return (
       <div className="full-scale city-handler">
         {this.state.error ? 

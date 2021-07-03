@@ -30,12 +30,14 @@ describe('CityHandler', () => {
     render(<CityHandler/>);
     await screen.findByText('Uppsala Municipality');
   });
-  // it('user should be able to add new cities to list', async () => {
+  it('user should be able to add new cities to list', async () => {
 
-  //   render(<CityHandler/>);
-  //   fireEvent.change(screen.getByRole('textbox'), { target: {value: 'Stockholm'}});
-  //   fireEvent.click(screen.getByTestId('plus-button'));
+    render(<CityHandler/>);
+    fireEvent.change(screen.getByRole('textbox'), { target: {value: 'Stockholm'}});
+    fireEvent.click(screen.getByTestId('plus-button'));
 
-  //   await screen.findByText('Stockholm Municipality');
-  // });
+    await screen.findByText('Stockholm Municipality');
+    await screen.findByText('Uppsala Municipality');
+
+  });
 });
