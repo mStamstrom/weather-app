@@ -34,7 +34,7 @@
     "@types/styled-components": "^4.1.10",
     "codelyzer": "^4.5.0",
     "cypress": "^3.2.0",
-    "typescript": "^3.4.1"
+    "typescript": "^3.8.3"
   },
   "browserslist": [
     ">0.2%",

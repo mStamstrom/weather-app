@@ -30,6 +30,7 @@ class CityHandler extends React.Component<IProps, IState> {
   public componentDidMount() {
     navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
+      
       getCurrentWeatherForPosition(latitude, longitude)
         .then((res) => {
           const { cities } = this.state;
@@ -48,6 +49,8 @@ class CityHandler extends React.Component<IProps, IState> {
   }
 
   public render() {
+    console.log('render', this.state.cities);
+    
     return (
       <div className="full-scale city-handler">
         {this.state.error ? 

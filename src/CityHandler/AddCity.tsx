@@ -21,6 +21,7 @@ class AddCity extends React.Component<IProps, IState> {
 
   addCity = () => {
     if (this.state.text) {
+      this.setState({text: ''}); 
       this.props.addCity(this.state.text);
     }
   }
@@ -33,9 +34,9 @@ class AddCity extends React.Component<IProps, IState> {
         </span>
         <div className="add-city-input">
           <div className="add-city-input-container">
-            <input type="text" className="add-city-input-field__input" onChange={this.onChange} value={this.state.text} />}
+            <input type="text" className="add-city-input-field__input" onChange={this.onChange} value={this.state.text} />
           </div>
-          <button type="submit">
+          <button type="submit" data-testid="plus-button">
             <i className="fas fa-2x fa-plus-circle" />
           </button>
         </div>
