@@ -24,9 +24,17 @@
     "eject": "react-scripts eject",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "lint": "eslint --fix --ext .js,.tsx,.ts ."
+    "lint": "eslint --fix --ext .js,.tsx,.ts .",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.3.2",
+    "@storybook/addon-essentials": "^6.3.2",
+    "@storybook/addon-links": "^6.3.2",
+    "@storybook/node-logger": "^6.3.2",
+    "@storybook/preset-create-react-app": "^3.1.7",
+    "@storybook/react": "^6.3.2",
     "@testing-library/react": "^12.0.0",
     "@types/jest": "^24.0.11",
     "@types/node": "^11.12.2",
@@ -34,7 +42,7 @@
     "@types/react-dom": "^16.8.3",
     "@types/styled-components": "^4.1.10",
     "codelyzer": "^4.5.0",
-    "cypress": "^3.2.0",
+    "cypress": "^7.7.0",
     "typescript": "^3.8.3"
   },
   "browserslist": [
@@ -42,5 +50,17 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  }
 }

@@ -2,7 +2,7 @@ import * as React from 'react';
 import './AddCity.css';
 
 interface IProps {
-  addCity: any;
+  addCity: (text: string) => void;
 }
 interface IState {
   text: string;
@@ -19,7 +19,8 @@ class AddCity extends React.Component<IProps, IState> {
     this.setState({text: e.target.value});
   }
 
-  addCity = () => {
+  addCity = (e: any) => {
+    e.preventDefault();
     if (this.state.text) {
       this.setState({text: ''}); 
       this.props.addCity(this.state.text);

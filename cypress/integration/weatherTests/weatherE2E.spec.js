@@ -1,6 +1,6 @@
 describe('weather e2e tests', () => {
   it('when visiting startpage, weather for current location should be shown, with forcast for future 5 days', () => {
-    cy.visit('http://localhost:3000', {
+    cy.visit('http://localhost:3000/weather-app', {
       onBeforeLoad(contentWindow) {
         cy.stub(contentWindow.navigator.geolocation, 'getCurrentPosition', (callback) => {
           callback({
@@ -25,7 +25,7 @@ describe('weather e2e tests', () => {
   });
 
   it('when selecting new weather in forecast, detailed information about weather is shown', () => {
-    cy.visit('http://localhost:3000');
+    cy.visit('http://localhost:3000/weather-app');
 
     cy.get('.current-weather .current-temperature').then(($beforeTemperature) => {
       const beforeTemperature = $beforeTemperature.text();
@@ -38,14 +38,14 @@ describe('weather e2e tests', () => {
 
   it('when clicking link to city view, redirect is triggered', () => {
 
-    cy.visit('http://localhost:3000');
+    cy.visit('http://localhost:3000/weather-app');
     cy.get('.App-menu').click();
     cy.location('pathname').should('include', 'list');
 
   });
 
   it('when mocking network and api returns specific data, page shows correct information', () => {
-    cy.visit('http://localhost:3000', {
+    cy.visit('http://localhost:3000/weather-app', {
       onBeforeLoad(window) {
         cy.stub(window, 'fetch', () => {
           return new Promise(resolve => resolve({
